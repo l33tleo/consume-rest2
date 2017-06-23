@@ -1,0 +1,5 @@
+spring:
+    profiles: dev
+name: dev-YAML
+environment: dev
+database: crypto.cscddufwrpnn.eu-central-1.rds.amazonaws.com:3306
