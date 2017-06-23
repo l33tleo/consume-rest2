@@ -33,7 +33,9 @@ public class Coins {
              @JsonProperty("total_supply") final String total_supply,
              @JsonProperty("percent_change_1h") final String percent_change_1h,
              @JsonProperty("percent_change_24h") final String percent_change_24h,
-             @JsonProperty("last_updated") final String last_updated) {
+             @JsonProperty("last_updated") final String last_updated) 
+    
+    {
       
              this.id = id;
              this.name =name;
