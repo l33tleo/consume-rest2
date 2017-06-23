@@ -1,6 +1,7 @@
 package hello;
 
 import java.util.Arrays;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 public class Application {
@@ -40,10 +46,19 @@ public class Application {
 			 HttpHeaders headers = new HttpHeaders();
 			headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 			HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-			ResponseEntity<String> result = restTemplate.exchange("https://api.coinmarketcap.com/v1/ticker/?limit=1",HttpMethod.GET,entity, String.class);
-			//log.info(result.toString());
+			//ResponseEntity<Coins> result = restTemplate.exchange("https://api.coinmarketcap.com/v1/ticker/?limit=1",HttpMethod.GET,entity, Coins.class);
+			Coins[] result = restTemplate.getForObject("https://api.coinmarketcap.com/v1/ticker/?limit=5", Coins[].class);
+			//System.out.println(Arrays.toString(result));
+			String name= result[0].name;
 			
-			System.out.println(result);
+			
+			System.out.println(name);
+			System.out.println("leo");
+			
+			
+			
+			
+			//(result.toString());
 		};
 	}
 }

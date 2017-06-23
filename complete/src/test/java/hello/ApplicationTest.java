@@ -35,6 +35,8 @@ public class ApplicationTest {
 	@Test
 	public void contextLoads() {
 		assertThat(restTemplate).isNotNull();
+		
+		
 	}
 
 }
